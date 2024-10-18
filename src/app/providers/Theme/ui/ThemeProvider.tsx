@@ -27,12 +27,8 @@ export const ThemeContextProvider = (props: ThemeProviderProps) => {
   );
 
   const defaultProps = useMemo(
-    () => ({
-      themeMode,
-      setThemeMode,
-      setTheme,
-    }),
-    [theme]
+    () => ({ themeMode, setThemeMode, setTheme }),
+    [themeMode]
   );
 
   return (

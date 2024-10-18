@@ -1,5 +1,10 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from 'webpack';
+import {
+  DefinePlugin,
+  HotModuleReplacementPlugin,
+  ProgressPlugin,
+  WebpackPluginInstance,
+} from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export function buildPlugins({
@@ -9,7 +14,7 @@ export function buildPlugins({
   html: string;
   isDev: boolean;
 }): WebpackPluginInstance[] {
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: html,
     }),
@@ -21,5 +26,8 @@ export function buildPlugins({
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-  ];
+    isDev && new HotModuleReplacementPlugin(),
+  ].filter((plugin): plugin is WebpackPluginInstance => Boolean(plugin));
+
+  return plugins;
 }
