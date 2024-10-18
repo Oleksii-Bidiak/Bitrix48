@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { Root } from './app/Root';
+import './shared/config/i18n';
+
 const container = document.getElementById('root');
 
 if (!container) {
