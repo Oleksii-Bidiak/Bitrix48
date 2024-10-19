@@ -1,5 +1,5 @@
 function RegistrationPage() {
-  return <div>RegistrationPage</div>;
+  return <div></div>;
 }
 
 export default RegistrationPage;

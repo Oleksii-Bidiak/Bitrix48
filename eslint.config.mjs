@@ -4,10 +4,12 @@ import react from 'eslint-plugin-react';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import reactHooks from 'eslint-plugin-react-hooks';
+import i18next from 'eslint-plugin-i18next';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   js.configs.recommended,
+  i18next.configs['flat/recommended'],
   {
     languageOptions: {
       globals: {
@@ -15,8 +17,6 @@ export default [
         ...globals.jest,
         ...globals.browser,
         __IS_DEV__: true,
-        // __API__: true,
-        // __PROJECT__: true,
       },
       parser: typescriptParser,
       parserOptions: {
@@ -27,13 +27,7 @@ export default [
         sourceType: 'module',
       },
     },
-    files: ['**/*.{ts,tsx}'],
-    plugins: {
-      react,
-      typescriptEslint,
-      'react-hooks': reactHooks,
-      // 'i18next',
-    },
+    files: ['**/*.{ts,tsx,js}'],
     rules: {
       'lines-between-class-members': 'off',
       '@typescript-eslint/interface-name-prefix': 'off',
@@ -49,6 +43,7 @@ export default [
       'consistent-return': 'off',
       'no-use-before-define': 'off',
       radix: 'error',
+      // indent: ['error', 4],
       'padded-blocks': [
         'off',
         { blocks: 'never', classes: 'always', switches: 'never' },
@@ -58,6 +53,7 @@ export default [
       'import/no-duplicates': 'off',
       'no-prototype-builtins': 'error',
       'no-restricted-syntax': 'off',
+      //   'implicit-arrow-linebreak': ['error', 'below'],
       camelcase: 'off',
       'max-classes-per-file': ['error', { max: 2 }],
       'no-shadow': 'off',
@@ -79,7 +75,6 @@ export default [
       'no-fallthrough': 'error',
       'operator-assignment': 'off',
       'no-console': 'off',
-      'no-alert': 'off',
       'no-constant-condition': 'off',
       'no-unreachable': 'off',
       'no-multi-assign': 'error',
@@ -110,14 +105,20 @@ export default [
         { extensions: ['.js', '.jsx', '.tsx'] },
       ],
       'react/button-has-type': 'off',
-      // 'i18next/no-literal-string': [
-      //   'error',
-      //   { markupOnly: true, ignoreAttribute: ['data-testid'] },
-      // ],
+      'i18next/no-literal-string': [
+        'error',
+        { markupOnly: true, ignoreAttribute: ['data-testid'] },
+      ],
       'no-restricted-globals': 'off',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
       'react/no-array-index-key': 'off',
+    },
+    plugins: {
+      react,
+      typescriptEslint,
+      'react-hooks': reactHooks,
+      // 'i18next',
     },
   },
   {

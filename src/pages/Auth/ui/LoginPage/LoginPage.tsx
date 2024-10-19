@@ -127,7 +127,7 @@ export default function LoginPage(props: { disableCustomTheme?: boolean }) {
             component="h1"
             variant="h4"
             sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}>
-            Sign in
+            {/* Sign in */}
           </Typography>
           <Box
             component="form"
@@ -140,7 +140,7 @@ export default function LoginPage(props: { disableCustomTheme?: boolean }) {
               gap: 2,
             }}>
             <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
+              <FormLabel htmlFor="email">{/* Email */}</FormLabel>
               <TextField
                 error={emailError}
                 helperText={emailErrorMessage}
@@ -159,14 +159,14 @@ export default function LoginPage(props: { disableCustomTheme?: boolean }) {
             </FormControl>
             <FormControl>
               <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <FormLabel htmlFor="password">Password</FormLabel>
+                <FormLabel htmlFor="password">{/* Password */}</FormLabel>
                 <Link
                   component="button"
                   type="button"
                   onClick={handleClickOpen}
                   variant="body2"
                   sx={{ alignSelf: 'baseline' }}>
-                  Forgot your password?
+                  {/* Forgot your password? */}
                 </Link>
               </Box>
               <TextField
@@ -194,7 +194,7 @@ export default function LoginPage(props: { disableCustomTheme?: boolean }) {
               fullWidth
               variant="contained"
               onClick={validateInputs}>
-              Sign in
+              {/* Sign in */}
             </Button>
             {/* <Typography sx={{ textAlign: 'center' }}>
               Don&apos;t have an account?{' '}

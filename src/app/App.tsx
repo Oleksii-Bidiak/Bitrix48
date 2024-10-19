@@ -12,7 +12,6 @@ export const App = () => {
         <Header />
         <main className="main">
           {/* SideBar */}
-
           <AppRouter />
         </main>
       </Suspense>

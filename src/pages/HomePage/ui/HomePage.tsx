@@ -17,7 +17,7 @@ function HomePage() {
         sx={{ color: (theme) => theme.palette.primary.contrastText }}
         //   sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
       >
-        HomePage
+        {/* HomePage */}
       </Typography>
       <button onClick={toggle}>{t('translate')}</button>
       <div>{t('Test')}</div>
