@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { AppRouter } from './providers/router';
 import { Header } from '../widgets/Header/ui/Header';
 import NightModeToggle from '../widgets/ModeSwitcher/ModeSwitcher';

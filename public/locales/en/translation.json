@@ -1,4 +1,6 @@
 {
 	"Test": "Test example",
-	"translate": "translate"
+	"translate": "translate",
+	"PageError": "An unexpected error has occurred. Try reloading the page",
+	"Reload": "Reload"
 }
