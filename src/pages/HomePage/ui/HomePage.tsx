@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 function HomePage() {
@@ -19,7 +19,9 @@ function HomePage() {
       >
         {/* HomePage */}
       </Typography>
-      <button onClick={toggle}>{t('translate')}</button>
+      <Button variant="contained" onClick={toggle}>
+        {t('translate')}
+      </Button>
       <div>{t('Test')}</div>
     </div>
   );

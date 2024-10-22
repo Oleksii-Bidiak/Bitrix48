@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import { Root } from './app/Root';
-import './shared/config/i18n';
+import './shared/config/i18n/i18n';
 
 const container = document.getElementById('root');
 

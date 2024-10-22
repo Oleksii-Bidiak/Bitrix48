@@ -6,6 +6,7 @@ import {
   WebpackPluginInstance,
 } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export function buildPlugins({
   html,
@@ -27,6 +28,9 @@ export function buildPlugins({
       __IS_DEV__: JSON.stringify(isDev),
     }),
     isDev && new HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ].filter((plugin): plugin is WebpackPluginInstance => Boolean(plugin));
 
   return plugins;

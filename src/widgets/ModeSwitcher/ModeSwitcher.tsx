@@ -6,7 +6,10 @@ const NightModeToggle = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <IconButton onClick={toggleTheme} color="inherit">
+    <IconButton
+      data-testid="night-mode-toggle"
+      onClick={toggleTheme}
+      color="inherit">
       {theme === 'dark' ? <DarkMode /> : <LightMode />}
     </IconButton>
   );
