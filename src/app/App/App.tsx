@@ -3,11 +3,14 @@ import { AppRouter } from '../providers/router';
 import { Header } from '../../widgets/Header/ui/Header';
 import { Sidebar } from '@/widgets/SideBar';
 import cls from './app.module.scss';
-import { Box } from '@mui/material';
+import { useTheme } from '../providers/Theme';
+import classNames from 'classnames';
 
 export const App = () => {
+  const { theme } = useTheme();
+
   return (
-    <Box className={cls.app}>
+    <div className={classNames(cls.app, [theme])}>
       <Suspense fallback={<div>{'...'}</div>}>
         <Header className={cls.header} />
         <Sidebar className={cls.sideBar} />
@@ -15,6 +18,6 @@ export const App = () => {
           <AppRouter />
         </main>
       </Suspense>
-    </Box>
+    </div>
   );
 };

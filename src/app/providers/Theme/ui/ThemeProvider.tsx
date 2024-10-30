@@ -1,41 +1,25 @@
 import { ReactNode, useMemo, useState } from 'react';
 import {
   LOCAL_STORAGE_THEME_KEY,
+  Theme,
   ThemeContext,
-  ThemeMode,
 } from '../lib/ThemeContext';
-import { CssBaseline, Theme } from '@mui/material';
-import { DarkTheme, LightTheme } from '../lib/theme';
-import { ThemeProvider } from '@mui/material';
 
 const defaultTheme =
-  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeMode) ||
-  ThemeMode.LIGHT;
+  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 interface ThemeProviderProps {
-  initialTheme?: ThemeMode;
+  initialTheme?: Theme;
   children: ReactNode;
 }
 
 export const ThemeContextProvider = (props: ThemeProviderProps) => {
   const { initialTheme, children } = props;
-  const [themeMode, setThemeMode] = useState<ThemeMode>(
-    initialTheme || defaultTheme
-  );
-  const [theme, setTheme] = useState<Theme>(
-    themeMode === ThemeMode.LIGHT ? LightTheme : DarkTheme
-  );
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
-  const defaultProps = useMemo(
-    () => ({ themeMode, setThemeMode, setTheme }),
-    [themeMode]
-  );
+  const value = useMemo(() => ({ theme, setTheme }), [theme]);
 
   return (
-    <ThemeContext.Provider value={defaultProps}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline /> {children}
-      </ThemeProvider>
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 };

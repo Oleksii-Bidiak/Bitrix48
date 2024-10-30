@@ -1,45 +1,34 @@
 import { useContext } from 'react';
-import {
-  LOCAL_STORAGE_THEME_KEY,
-  ThemeMode,
-  ThemeContext,
-} from './ThemeContext';
-import { Theme } from '@mui/material';
-import { DarkTheme, LightTheme } from './theme';
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
 interface UseThemeResult {
-  theme: ThemeMode;
+  theme: Theme;
   toggleTheme: () => void;
 }
 
 export function useTheme(): UseThemeResult {
-  const { themeMode, setThemeMode, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    let newTheme: ThemeMode;
-    let theme: Theme;
-    switch (themeMode) {
-      case ThemeMode.LIGHT:
-        newTheme = ThemeMode.DARK;
-        theme = DarkTheme;
+    let newTheme: Theme;
+    switch (theme) {
+      case Theme.LIGHT:
+        newTheme = Theme.DARK;
         break;
-      case ThemeMode.DARK:
-        newTheme = ThemeMode.LIGHT;
-        theme = LightTheme;
+      case Theme.DARK:
+        newTheme = Theme.LIGHT;
         break;
 
       default:
-        newTheme = ThemeMode.LIGHT;
-        theme = LightTheme;
+        newTheme = Theme.LIGHT;
     }
 
-    setTheme(theme);
-    setThemeMode?.(newTheme);
+    setTheme?.(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 
   return {
-    theme: themeMode || ThemeMode.LIGHT,
+    theme: theme || Theme.LIGHT,
     toggleTheme,
   };
 }

@@ -1,4 +1,3 @@
-import { Button, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 export const ErrorPage = () => {
@@ -9,12 +8,8 @@ export const ErrorPage = () => {
 
   return (
     <div>
-      <Typography component="h1" variant="h1">
-        {t('PageError')}
-      </Typography>
-      <Button variant="contained" onClick={reloadPage}>
-        {t('Reload')}
-      </Button>
+      <h1>{t('PageError')}</h1>
+      <button onClick={reloadPage}>{t('Reload')}</button>
     </div>
   );
 };

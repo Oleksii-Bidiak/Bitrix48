@@ -30,7 +30,7 @@ const config: Config = {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, '__mocks__/MockComponent.tsx'),
     '@/(.*)': '<rootDir>src/$1',
-    '^@/index$': '<rootDir>config/jest/__mocks__/mockIndex.ts',
+   //  '^@/index$': '<rootDir>config/jest/__mocks__/mockIndex.ts',
   },
 };
 

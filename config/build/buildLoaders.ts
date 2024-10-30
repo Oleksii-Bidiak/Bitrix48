@@ -1,7 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RuleSetRule } from 'webpack';
 
-export function buildLoaders(isDev: boolean): RuleSetRule[] {
+export function buildLoaders(isDev: boolean, postCss: string): RuleSetRule[] {
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [
@@ -17,12 +17,13 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
   };
 
   const cssLoaders = {
-    test: /\.(sa|sc|c)ss$/i,
+    test: /\.[s]?css$/,
     use: [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       {
         loader: 'css-loader',
         options: {
+          importLoaders: 2,
           modules: {
             auto: (resPath: string) => Boolean(resPath.includes('.module.')),
             namedExport: false,
@@ -32,6 +33,7 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
           },
         },
       },
+      'postcss-loader',
       'sass-loader',
     ],
   };

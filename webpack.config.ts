@@ -9,6 +9,7 @@ export default (env: BuildEnv) => {
     build: path.resolve(__dirname, 'dist'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     src: path.resolve(__dirname, 'src'),
+	 postCss: path.resolve(__dirname, 'postcss.config.js')
   };
 
   const mode: BuildMode = env.mode || 'development';

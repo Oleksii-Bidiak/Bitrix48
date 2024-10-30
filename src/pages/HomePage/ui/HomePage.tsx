@@ -1,4 +1,3 @@
-import { Button, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 function HomePage() {
@@ -10,18 +9,7 @@ function HomePage() {
 
   return (
     <div>
-      <Typography
-        component="h1"
-        variant="h1"
-        color="primary"
-        sx={{ color: (theme) => theme.palette.primary.contrastText }}
-        //   sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
-      >
-        {/* HomePage */}
-      </Typography>
-      <Button variant="contained" onClick={toggle}>
-        {t('translate')}
-      </Button>
+      <button onClick={toggle}>{t('translate')}</button>
       <div>{t('Test')}</div>
     </div>
   );
