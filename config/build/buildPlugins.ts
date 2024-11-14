@@ -28,15 +28,15 @@ export function buildPlugins({
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
   ];
 
   if (isDev) {
     plugins.push(
       new HotModuleReplacementPlugin(),
-      new ReactRefreshWebpackPlugin()
+      new ReactRefreshWebpackPlugin(),
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+      })
     );
   }
 
