@@ -10,8 +10,10 @@
 	  "esModuleInterop": true,
 	  "allowSyntheticDefaultImports": true,
 	  "baseUrl": ".",
+	  "strict": true,
+	  "isolatedModules": true,
 	  "paths": {
-		 "@/*": ["src/*"]
+	    "@/*": ["./src/*"]
 	  }
 	},
 	"exclude": ["node_modules", "dist"],
@@ -23,6 +25,7 @@
 	 "include": [
 		"./src/app/types/global.d.ts",
 		"./config/jest/setupTests.ts",
+		"./config/storybook/**/*.*",
 		"./src/**/*.ts",
 		"./src/**/*.tsx",
 	]

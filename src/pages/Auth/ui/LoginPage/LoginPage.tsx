@@ -1,5 +1,7 @@
+import { Page } from '@/shared/ui/Page';
+
 function LoginPage() {
-  return <div>LoginPage</div>;
+  return <Page>LoginPage</Page>;
 }
 
 export default LoginPage;

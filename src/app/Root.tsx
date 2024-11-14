@@ -1,8 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeContextProvider } from './providers/Theme';
 import { ErrorBoundary } from './providers/ErrorBoundary';
-import { App } from './App/App';
-import './styles/index.scss';
+import { App } from './App';
 
 export const Root = () => {
   return (

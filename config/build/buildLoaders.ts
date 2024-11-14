@@ -1,7 +1,9 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RuleSetRule } from 'webpack';
+import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
+import { buildTypescriptLoader } from './loaders/buildTypescriptLoader';
 
-export function buildLoaders(isDev: boolean, postCss: string): RuleSetRule[] {
+export function buildLoaders(isDev: boolean, babelConfig:string): RuleSetRule[] {
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [
@@ -16,44 +18,11 @@ export function buildLoaders(isDev: boolean, postCss: string): RuleSetRule[] {
     use: ['@svgr/webpack'],
   };
 
-  const cssLoaders = {
-    test: /\.[s]?css$/,
-    use: [
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      {
-        loader: 'css-loader',
-        options: {
-          importLoaders: 2,
-          modules: {
-            auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-            namedExport: false,
-            localIdentName: isDev
-              ? '[path][name]__[local]--[hash:base64:5]'
-              : '[hash:base64:8]',
-          },
-        },
-      },
-      'postcss-loader',
-      'sass-loader',
-    ],
-  };
+  const cssLoaders = buildCssLoaders(isDev);
 
-  const babelLoader = {
-    test: /\.(js|ts,jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-      },
-    },
-  };
+  const babelLoader = buildBabelLoader(babelConfig);
 
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  };
+  const typescriptLoader = buildTypescriptLoader(isDev);
 
   return [cssLoaders, svgLoader, fileLoader, babelLoader, typescriptLoader];
 }

@@ -10,3 +10,25 @@ body,
 #root {
 	min-height: 100vh;
 }
+
+.app {
+	// min-height: 100vh;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto 1fr;
+	width: 100%;
+
+	@apply bg-bg text-primary;
+}
+
+.header {
+	grid-column: 1 / -1;
+}
+
+.sidebar {
+	grid-column: 1 / 2;
+}
+
+.main {
+	grid-column: 2 / 2;
+}

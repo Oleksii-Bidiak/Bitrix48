@@ -1,0 +1,44 @@
+.search-container {
+	display: flex;
+	align-items: center;
+	background-color: #f0f0f0;
+	border-radius: 8px;
+	padding: 5px;
+	width: 100%;
+	max-width: 400px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	/* Adding shadow for depth */
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.search-container:hover {
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+	/* Slightly stronger shadow on hover */
+}
+
+.search-input {
+	border: none;
+	background: none;
+	outline: none;
+	flex: 1;
+	padding: 8px;
+	font-size: 16px;
+	color: #333;
+	border-radius: 8px;
+	/* Rounded corners for a polished look */
+}
+
+.search-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 5px;
+	font-size: 18px;
+	color: #555;
+	transition: color 0.2s ease-in-out;
+}
+
+.search-button:hover {
+	color: #000;
+	/* Darken the icon color on hover */
+}

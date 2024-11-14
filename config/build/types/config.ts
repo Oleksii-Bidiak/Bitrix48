@@ -5,7 +5,7 @@ export interface BuildPaths {
   build: string;
   html: string;
   src: string;
-  postCss: string;
+  babelConfig: string;
 }
 
 export interface BuildEnv {
