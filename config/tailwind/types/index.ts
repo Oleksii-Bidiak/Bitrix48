@@ -24,19 +24,29 @@ export type CustomFontSize = {
   md: string;
   lg: string;
   xl: string;
-  '2xl': string;
-  '3xl': string;
-  '4xl': string;
+  //   '2xl': string;
+  //   '3xl': string;
+  //   '4xl': string;
 };
+
+type CustomLineHeight = CustomFontSize;
 
 type CustomColors = {
   primary: string;
   secondary: string;
+  danger: string;
+  warning: string;
+  success: string;
   bg: string;
   card: string;
   borderColor: string;
   hover: string;
-  danger: string;
+};
+
+type CustomZIndex = {
+  base: string;
+  modal: string;
+  dropdown: string;
 };
 
 export type TailwindThemeConfig = Partial<CustomThemeConfig> & {
@@ -45,11 +55,13 @@ export type TailwindThemeConfig = Partial<CustomThemeConfig> & {
     spacing: CustomSpacing;
     colors: CustomColors;
     fontSize: CustomFontSize;
+    lineHeight: CustomLineHeight;
     fontFamily: Record<string, string[]>;
     borderRadius: Record<string, string>;
     boxShadow: Record<string, string>;
     transitionProperty: Record<string, string>;
     transitionTimingFunction: Record<string, string>;
     transitionDuration: Record<string, string>;
+    zIndex: CustomZIndex;
   };
 };

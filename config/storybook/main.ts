@@ -10,9 +10,6 @@ const config: StorybookConfig = {
     '@storybook/addon-webpack5-compiler-babel',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    //  '@storybook/addon-onboarding',
-    //  '@storybook/addon-webpack5-compiler-swc',
-    //  '@chromatic-com/storybook',
   ],
   framework: {
     name: '@storybook/react-webpack5',
@@ -37,7 +34,6 @@ const config: StorybookConfig = {
 
     config.module?.rules?.push(buildCssLoaders(true));
     config.resolve = { ...resolvers, ...buildResolvers(paths.src) };
-    //  config.resolve?.extensions?.push('.tsx', '.ts');
 
     return config;
   },
