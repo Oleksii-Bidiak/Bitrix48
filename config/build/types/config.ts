@@ -6,6 +6,7 @@ export interface BuildPaths {
   html: string;
   src: string;
   babelConfig: string;
+  styles: string;
 }
 
 export interface BuildEnv {

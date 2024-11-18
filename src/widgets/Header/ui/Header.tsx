@@ -10,7 +10,7 @@ interface Props {
 export const Header: FC<Props> = ({ className }) => {
   return (
     <header className={classNames(className, cls.header)}>
-      <h1>Bitrix48</h1>
+      <p className=''>Bitrix48</p>
     </header>
   );
 };

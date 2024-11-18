@@ -1,4 +1,4 @@
-import { Button, Input } from '@/shared/ui/Form';
+import { Input } from '@/shared/ui/Form';
 import { Page } from '@/shared/ui/Page';
 import { useTranslation } from 'react-i18next';
 
@@ -14,7 +14,6 @@ function HomePage() {
       <button onClick={toggle}>{t('translate')}</button>
       <div>{t('Test')}</div>
       <Input />
-      <Button>Test</Button>
     </Page>
   );
 }

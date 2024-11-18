@@ -2,5 +2,9 @@
 	"Test": "Test example",
 	"translate": "translate",
 	"PageError": "An unexpected error has occurred. Try reloading the page",
-	"Reload": "Reload"
+	"Reload": "Reload",
+	"login": "Login",
+	"enter": "Enter",
+	"home": "Home",
+	"files": "Files"
 }

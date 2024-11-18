@@ -1,0 +1,11 @@
+.sidebar {
+	width: rem(240);
+	height: 100%;
+	background-color: var(--inverted-bg-color);
+	padding: rem($spacing-lg) rem($spacing-md);
+	transition: width $duration;
+}
+
+.collapsed {
+	width: rem(40);
+}

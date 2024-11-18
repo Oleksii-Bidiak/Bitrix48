@@ -2,10 +2,10 @@
 @import 'theme/root';
 @import 'theme/light';
 @import 'theme/dark';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+body {
+	color: var(--primary-color);
+}
 
 body,
 #root {
@@ -18,8 +18,6 @@ body,
 	grid-template-columns: auto 1fr;
 	grid-template-rows: auto 1fr;
 	width: 100%;
-
-	@apply bg-bg text-primary;
 }
 
 .header {

@@ -1,23 +1,24 @@
 import { renderWithTranslation } from '@/shared/lib/tests/renderWithTranslation';
 import { Sidebar } from './Sidebar';
 import { screen } from '@testing-library/react';
+import { renderComponents } from '@/shared/lib/tests/renderComponents';
 
 describe('Sidebar', () => {
   test('renders Sidebar', () => {
-    renderWithTranslation(<Sidebar />);
+    renderComponents(<Sidebar />);
     const sidebar = screen.getByTestId('sidebar');
     expect(sidebar).toBeInTheDocument();
   });
 
   test('renders NightModeToggle', () => {
-    renderWithTranslation(<Sidebar />);
-    const nightModeToggle = screen.getByTestId('night-mode-toggle'); // обов'язково впевніться, що в компоненті `NightModeToggle` є атрибут `data-testid`
+    renderComponents(<Sidebar />);
+    const nightModeToggle = screen.getByTestId('night-mode-toggle');
     expect(nightModeToggle).toBeInTheDocument();
   });
 
   test('applies custom className', () => {
     const customClass = 'custom-class';
-    renderWithTranslation(<Sidebar className={customClass} />);
+    renderComponents(<Sidebar className={customClass} />);
     const sidebar = screen.getByTestId('sidebar');
     expect(sidebar).toHaveClass(customClass);
   });

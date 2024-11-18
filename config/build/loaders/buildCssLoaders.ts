@@ -1,6 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { RuleSetRule } from 'webpack';
 
-export function buildCssLoaders(isDev: boolean) {
+export function buildCssLoaders(isDev: boolean, styles: string): RuleSetRule {
   return {
     test: /\.[s]?css$/,
     use: [
@@ -18,8 +19,19 @@ export function buildCssLoaders(isDev: boolean) {
           },
         },
       },
-      'postcss-loader',
-      'sass-loader',
+      {
+        loader: 'sass-loader',
+        options: {
+          additionalData: `
+						@use "sass:math";
+          	@import "_variables";
+          	@import "_functions";
+          `,
+          sassOptions: {
+            loadPaths: [styles],
+          },
+        },
+      },
     ],
   };
 }

@@ -29,10 +29,11 @@ const config: StorybookConfig = {
       entry: '',
       html: '',
       src: path.resolve(__dirname, '..', '..', 'src'),
+      styles: path.resolve(__dirname, '..', '..', 'src', 'shared', 'styles'),
     };
     const resolvers = config.resolve;
 
-    config.module?.rules?.push(buildCssLoaders(true));
+    config.module?.rules?.push(buildCssLoaders(true, paths.styles));
     config.resolve = { ...resolvers, ...buildResolvers(paths.src) };
 
     return config;

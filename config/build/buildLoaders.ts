@@ -2,8 +2,10 @@ import { RuleSetRule } from 'webpack';
 import { buildCssLoaders } from './loaders/buildCssLoaders';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildTypescriptLoader } from './loaders/buildTypescriptLoader';
+import { BuildPaths } from './types/config';
 
-export function buildLoaders(isDev: boolean, babelConfig:string): RuleSetRule[] {
+export function buildLoaders(isDev: boolean, paths: BuildPaths): RuleSetRule[] {
+  const { babelConfig, styles } = paths;
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [
@@ -18,7 +20,7 @@ export function buildLoaders(isDev: boolean, babelConfig:string): RuleSetRule[] 
     use: ['@svgr/webpack'],
   };
 
-  const cssLoaders = buildCssLoaders(isDev);
+  const cssLoaders = buildCssLoaders(isDev, styles);
 
   const babelLoader = buildBabelLoader(babelConfig);
 

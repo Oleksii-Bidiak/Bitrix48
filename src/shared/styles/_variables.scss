@@ -1,0 +1,50 @@
+	@import '_functions';
+
+	$xs: 12;
+	$s: 14;
+	$m: 16;
+	$l: 24;
+	$xl: 32;
+
+	$font-family-main: 'Roboto', sans-serif;
+
+	$font-size-xs: rem($xs); // 12px
+	$font-size-s: rem($s); // 14px
+	$font-size-m: rem($m); // 16px
+	$font-size-l: rem($l); // 24px
+	$font-size-xl: rem($xl); // 32px
+
+	$line-height-xs: math.div(16, $xl);
+	$line-height-s: math.div(22, $s);
+	$line-height-m: math.div(24, $m);
+	$line-height-l: math.div(32, $l);
+	$line-height-xl: math.div(40, $xl);
+
+	$font-xs: #{$font-size-xs}/#{$line-height-xs};
+	$font-s: #{$font-size-s}/#{$line-height-s};
+	$font-m: #{$font-size-m}/#{$line-height-m};
+	$font-l: #{$font-size-l}/#{$line-height-l};
+	$font-xl: #{$font-size-xl}/#{$line-height-xl};
+
+	$font-line-xs: rem(16);
+	$font-line-s: rem(22);
+	$font-line-m: rem(24);
+	$font-line-l: rem(32);
+	$font-line-xl: rem(40);
+
+	// Breakpoints
+	$breakpoint-sm: 576px;
+	$breakpoint-md: 768px;
+	$breakpoint-lg: 992px;
+	$breakpoint-xl: 1200px;
+
+	$spacing-unit: 4;
+	$spacing-xxs: $spacing-unit; // 4px
+	$spacing-xs: $spacing-unit * 2; // 8px
+	$spacing-sm: $spacing-unit * 3; // 12px
+	$spacing-md: $spacing-unit * 4; // 16px
+	$spacing-lg: $spacing-unit * 6; // 24px
+	$spacing-xl: $spacing-unit * 8; // 32px
+	$spacing-xxl: $spacing-unit * 12; // 48px
+
+	$duration: 0.3s

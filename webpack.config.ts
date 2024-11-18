@@ -10,6 +10,7 @@ export default (env: BuildEnv) => {
     html: path.resolve(__dirname, 'public', 'index.html'),
     src: path.resolve(__dirname, 'src'),
     babelConfig: path.resolve(__dirname, 'babel.config.js'),
+    styles: path.resolve(__dirname, 'src', 'shared', 'styles'),
   };
 
   const mode: BuildMode = env.mode || 'development';

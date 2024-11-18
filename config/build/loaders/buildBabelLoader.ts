@@ -4,9 +4,9 @@ export function buildBabelLoader(babelConfig: string) {
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
-      // options: {
-      //   configFile: babelConfig,
-      // },
+      options: {
+        configFile: babelConfig,
+      },
     },
   };
 }

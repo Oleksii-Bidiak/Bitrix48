@@ -1,0 +1,53 @@
+.button {
+	font-size: $font-size-xl;
+	padding: rem(14) 28px;
+	transition: all 0.2s ease;
+	cursor: pointer;
+}
+
+.background,
+.outline {
+	color: var(--primary-color);
+}
+
+.background_inverted,
+.outline_inverted {
+	color: var(--primary-color-inverted);
+}
+
+.size_m {
+	font: $font-m
+}
+
+.size_l {
+	font: $font-l
+}
+
+.size_xl {
+	font: $font-xl
+}
+
+.background {
+	background-color: var(--bg-color);
+}
+
+.background_inverted {
+	background-color: var(--bg-color-inverted);
+}
+
+.square {
+	&.size_m {
+		height: $font-line-m;
+		width: $font-line-m;
+	}
+
+	&.size_l {
+		height: $font-line-l;
+		width: $font-line-l;
+	}
+
+	&.size_xl {
+		height: $font-line-xl;
+		width: $font-line-xl;
+	}
+}
